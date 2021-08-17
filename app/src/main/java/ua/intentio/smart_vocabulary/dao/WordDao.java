@@ -1,5 +1,6 @@
 package ua.intentio.smart_vocabulary.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,7 +15,7 @@ import ua.intentio.smart_vocabulary.domain.Word;
 public interface WordDao {
 
     @Query("SELECT * FROM word")
-    List<Word> getAll();
+    LiveData<List<Word>> getAll();
 
     @Insert
     void insert(Word word);

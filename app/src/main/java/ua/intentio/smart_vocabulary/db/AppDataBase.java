@@ -6,8 +6,8 @@ import androidx.room.RoomDatabase;
 import ua.intentio.smart_vocabulary.dao.WordDao;
 import ua.intentio.smart_vocabulary.domain.Word;
 
-@Database(entities = {Word.class}, version = 1)
-public abstract class AppDatabase extends RoomDatabase {
+@Database(entities = {Word.class}, version = 1, exportSchema = false)
+public abstract class AppDataBase extends RoomDatabase {
 
     public abstract WordDao wordDao();
 }

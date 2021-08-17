@@ -6,11 +6,10 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Word {
 
-    @PrimaryKey
-    private int id;
+    @PrimaryKey(autoGenerate = true)
+    public Integer id;
 
-    private String foreign_word;
+    public String foreign_word;
 
-    private String translate;
-
+    public String translate;
 }

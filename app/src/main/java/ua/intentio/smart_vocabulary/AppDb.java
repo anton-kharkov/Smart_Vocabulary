@@ -2,24 +2,32 @@ package ua.intentio.smart_vocabulary;
 
 import android.app.Application;
 
-import ua.intentio.smart_vocabulary.di.components.DaggerDataBaseComponent;
-import ua.intentio.smart_vocabulary.di.components.DataBaseComponent;
-import ua.intentio.smart_vocabulary.di.module.DataBaseModule;
+import androidx.room.Room;
+
+import ua.intentio.smart_vocabulary.db.AppDataBase;
 
 public class AppDb extends Application {
 
-    private DataBaseComponent dataBaseComponent;
+    public static AppDb instance;
+
+    public AppDataBase dataBase;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        dataBaseComponent = DaggerDataBaseComponent.builder()
-                .dataBaseModule(new DataBaseModule(this))
+        instance = this;
+
+        dataBase = Room.databaseBuilder(this, AppDataBase.class, "database")
                 .build();
     }
 
-    public DataBaseComponent getDataBaseComponent(){
-        return dataBaseComponent;
+    public static AppDb getInstance(){
+        return instance;
+    }
+
+    public AppDataBase getDataBase(){
+        return dataBase;
     }
 }

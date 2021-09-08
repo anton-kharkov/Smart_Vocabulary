@@ -1,7 +1,6 @@
 package ua.intentio.smart_vocabulary;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Database;
 
 import android.os.Bundle;
 import android.view.View;

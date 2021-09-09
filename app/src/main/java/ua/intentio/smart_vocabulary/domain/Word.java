@@ -12,4 +12,6 @@ public class Word {
     public String foreign_word;
 
     public String translate;
+
+
 }

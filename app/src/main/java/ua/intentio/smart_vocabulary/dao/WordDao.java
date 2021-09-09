@@ -15,7 +15,7 @@ import ua.intentio.smart_vocabulary.domain.Word;
 public interface WordDao {
 
     @Query("SELECT * FROM word")
-    LiveData<List<Word>> getAll();
+    List<Word> getAll();
 
     @Insert
     void insert(Word word);

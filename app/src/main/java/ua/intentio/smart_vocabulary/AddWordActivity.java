@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
+
 import ua.intentio.smart_vocabulary.dao.WordDao;
 import ua.intentio.smart_vocabulary.db.AppDataBase;
 import ua.intentio.smart_vocabulary.domain.Word;
@@ -45,32 +47,31 @@ public class AddWordActivity extends AppCompatActivity {
 
             Word addWord = new Word();
 
-            addWord.foreign_word = editWord;
-            addWord.translate = editTranslation;
+            addWord.setForeign_word(editWord);
+            addWord.setTranslate(editTranslation);
 
             saveText.setText("Сохранено");
             saveText.setVisibility(View.VISIBLE);
 
-            thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
+            thread = new Thread(() -> {
+                wordDao.insert(addWord);
 
-                    wordDao.insert(addWord);
+                try {
+                    Thread.sleep(1000);
 
-                    try {
-                        Thread.sleep(1000);
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                saveText.setVisibility(View.INVISIBLE);
-                            }
-                        });
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    runOnUiThread(() -> {
+                        saveText.setVisibility(View.INVISIBLE);
+                        word.setText("");
+                        translation.setText("");
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
+                thread.interrupt();
             });
+
+            thread.start();
 
         }else{
             saveText.setText("Неверно заполненые поля");

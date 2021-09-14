@@ -11,10 +11,11 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.Smart_Vocabulary">
-        <activity android:name=".ListWordsActivity" />
+        <activity android:name=".WordsListActivity"></activity>
         <activity android:name=".AddWordActivity" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

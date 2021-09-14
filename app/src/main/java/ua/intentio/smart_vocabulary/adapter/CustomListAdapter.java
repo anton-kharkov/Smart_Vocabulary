@@ -5,8 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-
-import androidx.recyclerview.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -16,13 +15,15 @@ import ua.intentio.smart_vocabulary.domain.Word;
 public class CustomListAdapter extends BaseAdapter {
 
     private Context context;
-    private LayoutInflater layoutInflater;
+    private LayoutInflater inflater;
+    private int layout;
     private List<Word> wordList;
 
-    public CustomListAdapter(Context context, List<Word> wordList) {
+    public CustomListAdapter(Context context, int layout, List<Word> wordList) {
         this.context = context;
+        this.layout = layout;
         this.wordList = wordList;
-        layoutInflater = LayoutInflater.from(context);
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class CustomListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return wordList.get(position);
+        return position;
     }
 
     @Override
@@ -42,6 +43,19 @@ public class CustomListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+
+        View view = inflater.inflate(layout, parent, false);
+
+        TextView idView = view.findViewById(R.id.number);
+        TextView wordView = view.findViewById(R.id.word);
+        TextView translationView = view.findViewById(R.id.translation);
+
+        Word word = wordList.get(position);
+
+        idView.setText(Integer.toString(word.getId()));
+        wordView.setText(word.getForeign_word());
+        translationView.setText(word.getTranslate());
+
+        return view;
     }
 }

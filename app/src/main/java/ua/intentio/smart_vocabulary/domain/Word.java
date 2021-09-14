@@ -7,11 +7,33 @@ import androidx.room.PrimaryKey;
 public class Word {
 
     @PrimaryKey(autoGenerate = true)
-    public Integer id;
+    private Integer id;
 
-    public String foreign_word;
+    private String foreign_word;
 
-    public String translate;
+    private String translate;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public String getForeign_word() {
+        return foreign_word;
+    }
+
+    public String getTranslate() {
+        return translate;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setForeign_word(String foreign_word) {
+        this.foreign_word = foreign_word;
+    }
+
+    public void setTranslate(String translate) {
+        this.translate = translate;
+    }
 }

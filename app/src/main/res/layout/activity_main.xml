@@ -23,7 +23,7 @@
         android:id="@+id/addWordBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
         android:onClick="goToAddWordActivity"
         android:text="@string/addWord_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,10 +35,11 @@
         android:id="@+id/listWordsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:onClick="goToListWordsActivity"
+        android:layout_marginBottom="251dp"
+        android:onClick="goToWordsListActivity"
         android:text="@string/listWords_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addWordBtn" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,8 +3,6 @@ package ua.intentio.smart_vocabulary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.Adapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.List;

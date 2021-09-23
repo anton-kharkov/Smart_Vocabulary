@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -52,10 +53,12 @@ public class CustomListAdapter extends BaseAdapter {
 
         Word word = wordList.get(position);
 
-        idView.setText(Integer.toString(word.getId()));
+        idView.setText(String.valueOf(word.getId()));
         wordView.setText(word.getForeign_word());
         translationView.setText(word.getTranslate());
 
         return view;
     }
+
+
 }

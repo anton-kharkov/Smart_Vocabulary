@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.List;
-
 import ua.intentio.smart_vocabulary.dao.WordDao;
 import ua.intentio.smart_vocabulary.db.AppDataBase;
 import ua.intentio.smart_vocabulary.domain.Word;
@@ -32,9 +30,9 @@ public class AddWordActivity extends AppCompatActivity {
         dataBase = AppDb.getInstance().getDataBase();
         wordDao = dataBase.wordDao();
 
-        word = (EditText) findViewById(R.id.word);
-        translation = (EditText) findViewById(R.id.translation);
-        saveText = (TextView) findViewById(R.id.saveText);
+        word = findViewById(R.id.word);
+        translation = findViewById(R.id.translation);
+        saveText = findViewById(R.id.saveText);
     }
 
     public void saveWordToDb(View view){

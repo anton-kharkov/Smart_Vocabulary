@@ -1,5 +1,6 @@
 package ua.intentio.smart_vocabulary.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +17,13 @@ import ua.intentio.smart_vocabulary.domain.Word;
 
 public class CustomListAdapter extends BaseAdapter {
 
-    private Context context;
-    private LayoutInflater inflater;
-    WordDao wordDao;
-    private int layout;
+    private final LayoutInflater inflater;
+    private final WordDao wordDao;
+    private final int layout;
     private int number = 0;
-    private List<Word> wordList;
+    private final List<Word> wordList;
 
     public CustomListAdapter(Context context, int layout, WordDao wordDao) {
-        this.context = context;
         this.layout = layout;
         this.wordDao = wordDao;
         inflater = LayoutInflater.from(context);
@@ -50,7 +49,7 @@ public class CustomListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = inflater.inflate(layout, parent, false);
+        @SuppressLint("ViewHolder") View view = inflater.inflate(layout, parent, false);
 
         TextView idView = view.findViewById(R.id.textView_numbering);
         TextView wordView = view.findViewById(R.id.textView_word);
@@ -65,20 +64,17 @@ public class CustomListAdapter extends BaseAdapter {
         wordView.setText(word.getForeign_word());
         translationView.setText(word.getTranslate());
 
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        buttonDelete.setOnClickListener(view1 -> {
 
-                Thread thread = new Thread(()->{
-                    wordList.remove(position);
-                    wordDao.delete(word);
-                });
+            Thread thread = new Thread(()->{
+                wordList.remove(position);
+                wordDao.delete(word);
+            });
 
-                thread.start();
-                number = 0;
-                notifyDataSetChanged();
-                thread.interrupt();
-            }
+            thread.start();
+            number = 0;
+            notifyDataSetChanged();
+            thread.interrupt();
         });
 
         return view;

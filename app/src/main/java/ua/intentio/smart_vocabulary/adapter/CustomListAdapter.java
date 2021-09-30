@@ -11,20 +11,25 @@ import android.widget.TextView;
 import java.util.List;
 
 import ua.intentio.smart_vocabulary.R;
+import ua.intentio.smart_vocabulary.dao.WordDao;
 import ua.intentio.smart_vocabulary.domain.Word;
 
 public class CustomListAdapter extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
+    WordDao wordDao;
     private int layout;
+    private int number = 0;
     private List<Word> wordList;
 
-    public CustomListAdapter(Context context, int layout, List<Word> wordList) {
+    public CustomListAdapter(Context context, int layout, WordDao wordDao) {
         this.context = context;
         this.layout = layout;
-        this.wordList = wordList;
+        this.wordDao = wordDao;
         inflater = LayoutInflater.from(context);
+
+        wordList = wordDao.getAll();
     }
 
     @Override
@@ -47,15 +52,34 @@ public class CustomListAdapter extends BaseAdapter {
 
         View view = inflater.inflate(layout, parent, false);
 
-        TextView idView = view.findViewById(R.id.number);
-        TextView wordView = view.findViewById(R.id.word);
-        TextView translationView = view.findViewById(R.id.translation);
+        TextView idView = view.findViewById(R.id.textView_numbering);
+        TextView wordView = view.findViewById(R.id.textView_word);
+        TextView translationView = view.findViewById(R.id.textView_translate);
+        Button buttonDelete = view.findViewById(R.id.buttonDelete);
 
         Word word = wordList.get(position);
 
-        idView.setText(String.valueOf(word.getId()));
+        number ++;
+
+        idView.setText(String.valueOf(number));
         wordView.setText(word.getForeign_word());
         translationView.setText(word.getTranslate());
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Thread thread = new Thread(()->{
+                    wordList.remove(position);
+                    wordDao.delete(word);
+                });
+
+                thread.start();
+                number = 0;
+                notifyDataSetChanged();
+                thread.interrupt();
+            }
+        });
 
         return view;
     }

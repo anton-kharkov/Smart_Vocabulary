@@ -57,7 +57,7 @@ public class AddWordActivity extends AppCompatActivity {
                 wordDao.insert(addWord);
 
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
 
                     runOnUiThread(() -> {
                         saveText.setVisibility(View.INVISIBLE);

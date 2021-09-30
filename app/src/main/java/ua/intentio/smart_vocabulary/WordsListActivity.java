@@ -35,7 +35,7 @@ public class WordsListActivity extends AppCompatActivity {
         thread = new Thread(() -> {
             wordList = wordDao.getAll();
 
-            adapter = new CustomListAdapter(this, R.layout.words_list_layout, wordList);
+            adapter = new CustomListAdapter(this, R.layout.list_word_layout, wordDao);
 
             runOnUiThread(() ->{
                 listView.setAdapter(adapter);

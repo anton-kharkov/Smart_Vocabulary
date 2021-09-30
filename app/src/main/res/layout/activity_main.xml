@@ -9,37 +9,33 @@
 
     <Button
         android:id="@+id/testBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="120dp"
         android:onClick="goToTestActivity"
         android:text="@string/test_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addWordBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
         android:onClick="goToAddWordActivity"
         android:text="@string/addWord_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/testBtn" />
 
     <Button
         android:id="@+id/listWordsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginBottom="312dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
         android:onClick="goToWordsListActivity"
         android:text="@string/listWords_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addWordBtn" />

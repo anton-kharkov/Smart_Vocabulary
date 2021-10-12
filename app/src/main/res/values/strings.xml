@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Smart_Vocabulary</string>
     <string name="test_button">Test</string>
-    <string name="addWord_button">Add Word</string>
+    <string name="addWord">Add Word</string>
+    <string name="addTranslate">Add Translate</string>
     <string name="listWords_button">List Words</string>
 </resources>

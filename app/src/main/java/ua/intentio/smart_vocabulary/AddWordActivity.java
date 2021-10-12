@@ -47,8 +47,14 @@ public class AddWordActivity extends AppCompatActivity {
             wordList = wordDao.getAll();
 
             if (wordList.size() <= 3) {
+                String showText;
                 int wordCount = wordList.size();
-                String showText = "Добавте " + (4 - wordCount);
+                int wordNumber = 4 - wordCount;
+                if (wordNumber == 1){
+                    showText = "Добавте ещё " + wordNumber + " слово.";
+                }else {
+                    showText = "Добавте ещё " + wordNumber + " слова.";
+                }
 
                 runOnUiThread(()->{
                     saveText.setText(showText);

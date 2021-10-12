@@ -1,7 +1,9 @@
 package ua.intentio.smart_vocabulary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -146,11 +148,13 @@ public class TestActivity extends AppCompatActivity {
         rightButton2.setClickable(false);
 
         if (answer.equals(wordMain.getForeign_word()) || answer.equals(wordMain.getTranslate())){
-            //answerButton.setBackgroundColor(getResources().getColor(R.));
+            answerButton.setBackgroundTintList(getResources().getColorStateList(R.color.green));
 
             threadAnswer = new Thread(()->{
                 try {
                     Thread.sleep(1000);
+
+                    answerButton.setBackgroundTintList(getResources().getColorStateList(R.color.orange));
 
                     thread.run();
                 } catch (InterruptedException e) {
@@ -158,11 +162,13 @@ public class TestActivity extends AppCompatActivity {
                 }
             });
         }else {
-            answerButton.setText("Нет");
+            answerButton.setBackgroundTintList(getResources().getColorStateList(R.color.red));
 
             threadAnswer = new Thread(()->{
                 try {
                     Thread.sleep(1000);
+
+                    answerButton.setBackgroundTintList(getResources().getColorStateList(R.color.orange));
 
                     thread.run();
                 } catch (InterruptedException e) {

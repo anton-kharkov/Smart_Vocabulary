@@ -146,7 +146,7 @@ public class TestActivity extends AppCompatActivity {
         rightButton2.setClickable(false);
 
         if (answer.equals(wordMain.getForeign_word()) || answer.equals(wordMain.getTranslate())){
-            answerButton.setText("Правильно");
+            //answerButton.setBackgroundColor(getResources().getColor(R.));
 
             threadAnswer = new Thread(()->{
                 try {

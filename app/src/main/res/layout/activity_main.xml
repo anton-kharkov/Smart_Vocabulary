@@ -5,37 +5,51 @@
     android:id="@+id/testButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/testBtn"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="96dp"
+        android:autoText="false"
+        android:background="@android:drawable/button_onoff_indicator_on"
         android:onClick="goToTestActivity"
         android:text="@string/test_button"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addWordBtn"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="95dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="95dp"
+        android:background="@android:drawable/button_onoff_indicator_on"
         android:onClick="goToAddWordActivity"
         android:text="@string/addWord_button"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/testBtn" />
 
     <Button
         android:id="@+id/listWordsBtn"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="95dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="95dp"
+        android:background="@android:drawable/button_onoff_indicator_on"
         android:onClick="goToWordsListActivity"
         android:text="@string/listWords_button"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addWordBtn" />

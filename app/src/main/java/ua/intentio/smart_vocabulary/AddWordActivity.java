@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ua.intentio.smart_vocabulary.dao.WordDao;
@@ -34,7 +33,6 @@ public class AddWordActivity extends AppCompatActivity {
 
         dataBase = AppDb.getInstance().getDataBase();
         wordDao = dataBase.wordDao();
-        List<Word> wordList = new ArrayList<>();
 
         word = findViewById(R.id.word);
         translation = findViewById(R.id.translation);
@@ -76,6 +74,7 @@ public class AddWordActivity extends AppCompatActivity {
             addWord.setForeign_word(editWord);
             addWord.setTranslate(editTranslation);
 
+            view.setClickable(false);
             saveText.setText("Сохранено");
             saveText.setVisibility(View.VISIBLE);
 
@@ -87,6 +86,7 @@ public class AddWordActivity extends AppCompatActivity {
 
                     runOnUiThread(() -> {
                         saveText.setVisibility(View.INVISIBLE);
+                        view.setClickable(true);
                         word.setText("");
                         translation.setText("");
                     });

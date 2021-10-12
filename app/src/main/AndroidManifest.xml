@@ -11,7 +11,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.Smart_Vocabulary">
-        <activity android:name=".WordsListActivity"></activity>
+        <activity android:name=".WordsListActivity"/>
         <activity android:name=".AddWordActivity" />
         <activity android:name=".TestActivity" />
         <activity
